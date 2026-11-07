@@ -7,11 +7,11 @@
 $sen: "Sen", sans-serif;
 
 // Colors
-$dark-green: #858E79;
-$light-green: #D1D9CE;
+$dark-green: #34564a;
+$light-green: #f5f7f3;
 $cream: #FDFBF7;
-$gray: #64605f;
-$purple: #a8a8c9;
+$gray: #303c37;
+$purple: #426655;
 $orange: #ad7237;
 
 // Base document colors
@@ -60,9 +60,16 @@ h1, h2 {
   width: auto;
 }
 
-#bio {
-  text-align: center;
-  margin: 0 auto;
-  max-width: 800px; /* nice readable width */
-  padding: 2rem;    /* add some breathing room */
-}
+#bio { max-width: 48rem; line-height: 1.75; }
+#bio > p:first-child { color: #426655; font-size: .85rem; letter-spacing: .06em; }
+#bio .btn { margin: .3rem .5rem .3rem 0; }
+.availability { padding: 1.1rem 1.3rem; margin: 1.5rem 0; background: #e6eee5; border-left: 3px solid #426655; border-radius: .3rem; }
+.availability p:last-child { margin-bottom: 0; }
+.about-photo { display: block; width: 100%; max-width: 34rem; max-height: 28rem; object-fit: contain; margin: 1.5rem auto .5rem; border-radius: .5rem; }
+figure:has(.about-photo) { margin: 2rem auto; break-inside: avoid; }
+figcaption { color: #526157; font-size: .9rem; text-align: center; }
+.navbar-brand img, .navbar-logo { max-height: 44px; width: auto; }
+a:focus-visible, .btn:focus-visible { outline: 3px solid #ad7237; outline-offset: 3px; }
+@media (max-width: 767px) { #bio { padding: 0 .25rem; } .about-photo { max-height: none; } }
+
+.quarto-about-trestles .description { display: none; }

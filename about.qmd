@@ -1,72 +1,38 @@
 ---
 title: "About"
-subtitle: "a bit more about me, both inside and outside of my research"
+subtitle: "Remote sensing research, fieldwork, and life beyond the lab"
 title-block-banner: true
 draft: false
+page-layout: article
+toc: false
 ---
 
-## {{< fa satellite title="satellite" >}} my research path
-I’m currently a Ph.D. student in the [Geography department]( https://www.geog.ucsb.edu/){target="_blank"} at UC Santa Barbara.
+## {{< fa satellite title="satellite" >}} My research path
+I’m currently a Ph.D. candidate in the [Geography department]( https://www.geog.ucsb.edu/){target="_blank"} at UC Santa Barbara.
 
 I earned both my bachelor's and master's degrees in Geography from National Taiwan University (NTU). During my undergraduate years, I discovered a deep passion for being outdoors—hiking the trails around Taipei and observing the natural environment.
 
-:::{.column-margin}
-```{r}
-#| echo: false
-#| fig-alt: "A typical day in MCF of Chilan, Taiwan"
-knitr::include_graphics("media/CL.jpg")
-```
-::: {.center-text .extra-small-text .dark-gray-text .topbr}
-A typical day in Chilan, Taiwan. The photo shot from the top of a flux tower at 14.5K.
-:::
-:::
+![Montane cloud forest in Chilan, Taiwan, photographed from a flux tower.](media/CL.jpg){.about-photo}
 
 
 One class that particularly inspired me was **Discovery of Montane Cloud Forests in Taiwan**, which I took in my junior year. I was drawn to the idea that we could do science by combining indoor analysis with outdoor exploration. For my senior project, I conducted a study titled **Analyzing the Factors of Windthrow by Typhoons in Chilan Mountain**, using Landsat imagery and field measurements to investigate what environmental factors (e.g. slope, aspect, elevation etc.) contribute to higher windthrow risks in the montane forests of northern Taiwan.
 
-:::{.column-margin}
-```{r}
-#| echo: false
-#| fig-alt: "a human with a tree"
-knitr::include_graphics("media/me_with_tree.jpg")
-```
-::: {.center-text .extra-small-text .dark-gray-text}
-I was measuring a really gigantic hinoki.
-:::
-:::
+![Measuring a hinoki tree in Taiwan.](media/me_with_tree.jpg){.about-photo}
 
 That early research experience led me to pursue a master’s degree under the guidance of my advisor, [Choy Huang]( https://sites.google.com/site/choyhuang/){target="_blank"}. My thesis, **Assessment of Spatiotemporal Dynamics of Fog Daily Duration in Montane Cloud Forests of Northeast Taiwan**, aimed to quantify fog frequency in montane cloud forests (MCFs) using Himawari-8 satellite imagery and meteorological field data. I used a random forest model to predict fog occurrence across both spatial and temporal scales.
 For a long time, our understanding of high-frequency fog in montane cloud forests (MCFs) was based mostly on rough estimates. [My work](https://www.sciencedirect.com/science/article/abs/pii/S0168192322000922?via%3Dihub){target="_blank"} was the first to quantify fog frequency in this ecosystem, laying the foundation for future studies on how these forests may be impacted by a warming climate.
 
-Now, as a Ph.D. student, my dissertation focuses on the impacts of drought on oak woodlands in Southern California. From working in environments with over 100% relative humidity to ecosystems where RH drops below 30%, I’ve found that what I enjoy most is the combination of remote sensing analysis and occasional fieldwork. My current research heavily involves **imaging spectroscopy** (a.k.a hyperspectral imagery), which captures over 300 bands across the electromagnetic spectrum, providing rich information about vegetation and ecosystem processes.
+Now, as a Ph.D. candidate, my dissertation focuses on the impacts of drought on oak woodlands in Southern California. From working in environments with over 100% relative humidity to ecosystems where RH drops below 30%, I’ve found that what I enjoy most is the combination of remote sensing analysis and occasional fieldwork. My current research heavily involves **imaging spectroscopy** (a.k.a hyperspectral imagery), which captures over 300 bands across the electromagnetic spectrum, providing rich information about vegetation and ecosystem processes.
 
-:::{.column-margin}
-```{r}
-#| echo: false
-#| fig-alt: "a human with a tree"
-knitr::include_graphics("media/me_with_oak.jpg")
-```
-::: {.center-text .extra-small-text .dark-gray-text}
-I was observing a brunt oak tree.
-:::
-:::
+![Observing a burned oak tree in Southern California.](media/me_with_oak.jpg){.about-photo}
 
 As a first-generation college student, I feel incredibly fortunate to have been supported by mentors, friends, and advisors throughout my academic journey. Their guidance has helped me grow when I felt stuck or uncertain. I truly believe it takes a village to nurture a student into an independent scholar. Although I am still learning, I’d be more than happy to connect with anyone interested in pursuing a similar path in geography or environmental remote sensing.
 
 
-## {{< fa seedling title="seedling" >}} my hobby
+## {{< fa seedling title="seedling" >}} Beyond research
 I believe that one of the most important skills to develop during a Ph.D. — beyond research — is maintaining a healthy **work-life balance**. A good balance not only supports well-being but also enhances productivity and creativity.
 
-:::{.column-margin}
-```{r}
-#| echo: false
-#| fig-alt: "my climbing pic"
-knitr::include_graphics("media/climbing.jpg")
-```
-::: {.center-text .extra-small-text .dark-gray-text .topbr}
-Outdoor Climbing in SB
-:::
-:::
+![Outdoor climbing in Santa Barbara.](media/climbing.jpg){.about-photo}
 
 In my free time, I enjoy **running, climbing (mostly top-rope), teaching myself piano, solving Rubik’s cubes of different shapes, reading (Bible, sci-fi, self-improvement, environmental and political topics), playing board games, and hiking**. 
 

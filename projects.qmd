@@ -1,8 +1,8 @@
 ---
-title: "Projects"
-subtitle: "some of my research projects and side projects" 
+title: "Research"
+subtitle: "Remote sensing and environmental data analysis" 
 listing:
-  contents: projects
+  contents: "projects/*/index.qmd"
   feed: true
   sort: "date desc"
   type: grid
@@ -14,7 +14,7 @@ listing:
   sort-ui: false
   filter-ui: false
   categories: true # allows you to sort posts by assigned categories
-  fields: [image, date, title, author, reading-time]
+  fields: [image, title, description, categories]
 page-layout: full
 title-block-banner: true
 ---

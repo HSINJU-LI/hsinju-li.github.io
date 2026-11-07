@@ -1,0 +1,1130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Hsin-Ju Li</title>
+<link>https://hsinju-li.github.io/projects.html</link>
+<atom:link href="https://hsinju-li.github.io/projects.xml" rel="self" type="application/rss+xml"/>
+<description>Ph.D. candidate at UC Santa Barbara specializing in remote sensing, imaging spectroscopy, and environmental change.</description>
+<generator>quarto-1.7.25</generator>
+<lastBuildDate>Sat, 03 May 2025 07:00:00 GMT</lastBuildDate>
+<item>
+  <title>Spatiotemporal Dynamics of Diurnal Fog in MCFs</title>
+  <dc:creator>Hsin-Ju Li</dc:creator>
+  <link>https://hsinju-li.github.io/projects/2025-05-03-Master_thesis/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="paper-link" class="level2">
+<h2 class="anchored" data-anchor-id="paper-link">Paper link</h2>
+<p>Welcome to contact me for a copy.</p>
+<p><a href="https://www.sciencedirect.com/science/article/abs/pii/S0168192322000922?via%3Dihub">Li, H. J., Lo, M. H., Juang, J. Y., Wang, J., &amp; Huang, C. Y. (2022). Assessment of spatiotemporal dynamics of diurnal fog occurrence in subtropical montane cloud forests. Agricultural and Forest Meteorology, 317, 108899.</a></p>
+</section>
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<section id="background" class="level3">
+<h3 class="anchored" data-anchor-id="background">1. Background</h3>
+<p>Montane cloud forests (MCFs) are frequently immersed in low-altitude clouds or fog. The diurnal (defined as 07:00–16:50 local time) cycle of fog is particularly important for regulating the carbon, water and energy cycles of these ecosystems. Elevated temperatures may alter the spatiotemporal dynamics of fog and have cascading impacts on MCFs. Therefore, systematic monitoring of fog occurrence is essential for understanding the ramifications of climate change on these unique forests.</p>
+</section>
+<section id="mathods" class="level3">
+<h3 class="anchored" data-anchor-id="mathods">2. Mathods</h3>
+<p>This study aims to quantify three years (2018–2020) of diurnal fog occurrence with high spatiotemporal (5 km, 10 minutes) resolutions in subtropical MCF in northeast Taiwan. <strong>Four open-sky observation stations</strong> were installed along an elevation gradient (1151, 1514, 1670 and 1811 m a.s.l.) within the cloud band to record meteorological data including <strong>rainfall, air temperature and relative humidity</strong>. We also acquired spatiotemporally-corresponding <strong>photosynthetic photon flux density</strong> from the geostationary <strong>Himawari-8 satellite</strong> and <strong>derived solar zenith angle</strong> for each station. We utilized these ground and satellite meteorological attributes to model fog occurrence using <strong>seven machine learning methods</strong>. By referring to <strong>time-lapse images</strong>, the performance of random forests was determined to be superior compared to other approaches and was therefore selected to quantify spatiotemporal dynamics of fog occurrence.</p>
+</section>
+<section id="results" class="level3">
+<h3 class="anchored" data-anchor-id="results">3. Results</h3>
+<p>Fog was determined to be more abundant in terms of probability, frequency and duration in <strong>mid-elevations</strong> when compared to the lower and higher ends. Temporal analysis demonstrated that overall seasonality was pronounced with higher fog abundance in the afternoons and cold months but varied from station to station. In addition, three-year fog duration and event variability for each month were notable for all stations; the foggiest station was at 1670 m a.s.l. This study demonstrates the feasibility of using machine learning to quantify spatiotemporal dynamics of fog using cross-scale meteorological attributes, which may facilitate monitoring the impact of climate change on MCFs.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://hsinju-li.github.io/projects/2025-05-03-Master_thesis/fig.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="center-text small-text">
+<p>With the power of machine learning models, we were able to estimate fog probability across time and space! Each column in the image represents each meteorological station.</p>
+</div>
+</section>
+</section>
+<section id="what-i-learned-from-this-project" class="level2">
+<h2 class="anchored" data-anchor-id="what-i-learned-from-this-project">What I learned from this project</h2>
+<ol type="1">
+<li>A workflow of cleaning raw data, organizing data, inputing to models, comparing results from multiple models</li>
+<li>Computed solar zenith angle at any time point and location</li>
+<li>Download Himawari-8 data</li>
+<li>Deal with circular variables</li>
+</ol>
+<section id="SZA" class="level3">
+<h3 class="anchored" data-anchor-id="SZA">Computed solar zenith angle at any time point and location</h3>
+<p>The R code provided estimates theoretical solar radiation for any time and location on Earth. This is useful for understanding the Earth’s energy budget, ecosystem monitoring, and renewable energy utilization.</p>
+<p>A clearness parameter, which represents cloudiness of the sky, is needed to calculate solar radiation. The parameter is stored in “<a href="https://github.com/HSINJU-LI/Solar-radiation/blob/master/satelliteIndex2018.csv" target="_blank">satelliteIndex2018.csv</a>”. The clearness index data is downloaded from <a href="https://power.larc.nasa.gov/" target="_blank">NASA Prediction Of Worldwide Energy Resources</a>. Note: Sky Clearness Index means the surface radiation divided by the extraterrestrial radiation. If the value was closer to 1, the clearer of the sky. Generally, Sky Clearness Index ~0.25 (cloudy), ~0.7 (clear).</p>
+<p>The calculation of the solar zenith angle (SZA) follows Bonan (2015). This chapter has a detailed description about the process of SZA calculation. The solar radiation is largely dependent on the angle of sun. Thus, if we ignore the atmospheric effect, the incident solar energy would equal to top of atmosphere solar radiation multiply cosine of SZA.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://hsinju-li.github.io/projects/2025-05-03-Master_thesis/SZA.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="center-text small-text">
+<p>This figure shows how zenith angles affect the incoming solar radiatioin.</p>
+</div>
+<p>The following R code calculates 2-minute interval solar radiation estimates for a location in northeastern Taiwan throughout the year 2018.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Reads in sky clearness data.</span></span>
+<span id="cb1-2">satellite_t <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read.csv</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"satelliteIndex2018.csv"</span>) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># sky clearness index for each day</span></span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">colnames</span>(satellite_t) <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Y"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"m"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"d"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"all_sky"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Clearness"</span>)</span>
+<span id="cb1-4">satellite_t[satellite_t<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Clearness <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, ] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.7</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># default extreme value to 0.7 (clear)</span></span>
+<span id="cb1-5"></span>
+<span id="cb1-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Sets latitude/longitude, time steps, and constants like solar constant (1367 W/m²).</span></span>
+<span id="cb1-7"></span>
+<span id="cb1-8">UTC <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># local time zone</span></span>
+<span id="cb1-9">Std_long <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> UTC <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">180</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span></span>
+<span id="cb1-10">s0 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1367</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># solar constant</span></span>
+<span id="cb1-11">P_MC <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">88.86</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># atmospheric pressure of your ROI</span></span>
+<span id="cb1-12">P <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> P_MC</span>
+<span id="cb1-13">lat <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">24.65</span></span>
+<span id="cb1-14">long <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">121.47</span></span>
+<span id="cb1-15">time <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">24</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 2-minute interval</span></span>
+<span id="cb1-16">time <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> time[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">720</span>]</span>
+<span id="cb1-17"></span>
+<span id="cb1-18"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install.packages("devtools")</span></span>
+<span id="cb1-19"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install.packages("magicfor")</span></span>
+<span id="cb1-20"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"devtools"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'devtools' was built under R version 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: usethis</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"magicfor"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'magicfor' was built under R version 4.2.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">magic_for</span>(print, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">silent =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#store the for loop results</span></span>
+<span id="cb6-2"></span>
+<span id="cb6-3"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> (J <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">365</span>) {  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># J: Julian day</span></span>
+<span id="cb6-4">  delta <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">asin</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.39785</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sin</span>((<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">278.97</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.9856</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> J <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.9165</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sin</span>((<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">356.6</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.9856</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> J) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> pi <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">180</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> pi <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">180</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">180</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> pi</span>
+<span id="cb6-5">  f <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> (<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">279.575</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.9856</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> J) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> pi <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">180</span></span>
+<span id="cb6-6">  ET <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> (<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">104.7</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sin</span>(f) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">596.2</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sin</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> f) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4.3</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sin</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> f) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12.7</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sin</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> f) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">429.3</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cos</span>(f) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cos</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> f) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">19.3</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cos</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> f)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3600</span></span>
+<span id="cb6-7">  t0 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> ((long <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> Std_long) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> ET</span>
+<span id="cb6-8">  a1 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">360</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> (J <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">365</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> pi <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">180</span></span>
+<span id="cb6-9">  a2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.00011</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.034221</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cos</span>(a1) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.00128</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sin</span>(a1) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.000719</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cos</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> a1) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.000077</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sin</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> a1)</span>
+<span id="cb6-10">  R_top <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> s0 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> a2</span>
+<span id="cb6-11">  h <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> (time <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> t0) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15</span></span>
+<span id="cb6-12">  cosZ <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sin</span>(lat <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> pi <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">180</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sin</span>(delta <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> pi <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">180</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cos</span>(lat <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> pi <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">180</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cos</span>(delta <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> pi <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">180</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cos</span>(h <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> pi <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">180</span>)</span>
+<span id="cb6-13">  m <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pmax</span>(P <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">101.3</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> cosZ, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)</span>
+<span id="cb6-14">  </span>
+<span id="cb6-15">  R_raw <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pmax</span>(R_top <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> cosZ, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)</span>
+<span id="cb6-16">  direct <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pmax</span>(R_top <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> satellite_t<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Clearness[J]<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">^</span>m <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> cosZ, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#direct solar radiation</span></span>
+<span id="cb6-17">  diff <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.3</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> R_top <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> satellite_t<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Clearness[J]<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">^</span>m) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> cosZ <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#diffuse solar radiation</span></span>
+<span id="cb6-18">  surfaceR <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> direct <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> diff</span>
+<span id="cb6-19">  </span>
+<span id="cb6-20">  Zenith <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">acos</span>(cosZ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">180</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> pi <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#Solar zenith angle</span></span>
+<span id="cb6-21">  </span>
+<span id="cb6-22">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">print</span>(surfaceR, R_raw, Zenith)</span>
+<span id="cb6-23">}</span>
+<span id="cb6-24">R_MC_2018 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">magic_result_as_dataframe</span>()</span>
+<span id="cb6-25"></span>
+<span id="cb6-26"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># add julian day and time interval column</span></span>
+<span id="cb6-27">JulianD<span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">365</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">each =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(time))</span>
+<span id="cb6-28">tinterval<span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rep</span>(time, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">times =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">365</span>)</span>
+<span id="cb6-29">mydt<span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.data.frame</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cbind</span>(JulianD, tinterval))</span>
+<span id="cb6-30"></span>
+<span id="cb6-31">R_MC_2018 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">J =</span> mydt<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>JulianD,<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">time =</span> mydt<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>tinterval, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">raw_R =</span> R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>R_raw, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">surface_R =</span> R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>surfaceR, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Zenith =</span> R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Zenith)</span></code></pre></div>
+</div>
+<p>I generate two plots that compare top of atmosphere radiation, surface radiation and zenith angle of Julian day 1 and 210.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># plot 1</span></span>
+<span id="cb7-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">plot</span>(R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>time[R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>J <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>], R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>raw_R[R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>J <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>], <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">type =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"l"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"blue"</span>,</span>
+<span id="cb7-3">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Radiation (W/m²)"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xlab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Time (hours)"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">main =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Raw vs Surface Radiation (J=1 &amp; J=210)"</span>,</span>
+<span id="cb7-4">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylim =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">range</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>raw_R, R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>surface_R), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>))  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># adjust y-axis to fit all</span></span>
+<span id="cb7-5"></span>
+<span id="cb7-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Add surface_R for J = 1</span></span>
+<span id="cb7-7"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lines</span>(R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>time[R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>J <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>], R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>surface_R[R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>J <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>], <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"red"</span>)</span>
+<span id="cb7-8"></span>
+<span id="cb7-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Add raw_R for J = 210</span></span>
+<span id="cb7-10"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lines</span>(R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>time[R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>J <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">210</span>], R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>raw_R[R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>J <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">210</span>], <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"blue"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lty =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span>
+<span id="cb7-11"></span>
+<span id="cb7-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Add surface_R for J = 210</span></span>
+<span id="cb7-13"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lines</span>(R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>time[R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>J <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">210</span>], R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>surface_R[R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>J <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">210</span>], <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"red"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lty =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span>
+<span id="cb7-14"></span>
+<span id="cb7-15"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Add legend</span></span>
+<span id="cb7-16"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">legend</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"topright"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">legend =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Raw R (J=1)"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Surface R (J=1)"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Raw R (J=210)"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Surface R (J=210)"</span>),</span>
+<span id="cb7-17">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"blue"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"red"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"blue"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"red"</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lty =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">cex =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.8</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://hsinju-li.github.io/projects/2025-05-03-Master_thesis/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># plot 2</span></span>
+<span id="cb8-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">plot</span>(R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>time[R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>J <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>], R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Zenith[R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>J <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>], <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">type =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"l"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"blue"</span>,</span>
+<span id="cb8-3">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Zenith"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xlab =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Time (hours)"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">main =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Zenith angle (J=1 &amp; J=210)"</span>,</span>
+<span id="cb8-4">     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylim =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">range</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Zenith), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>))  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># adjust y-axis to fit all</span></span>
+<span id="cb8-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lines</span>(R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>time[R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>J <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">210</span>], R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Zenith[R_MC_2018<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>J <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">210</span>], <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"red"</span>)</span>
+<span id="cb8-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">legend</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"bottomright"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">legend =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"J=1"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"J=210"</span>),</span>
+<span id="cb8-7">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"blue"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"red"</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lty =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">cex =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.8</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://hsinju-li.github.io/projects/2025-05-03-Master_thesis/index_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In practice, we need to consider the atmosphere effect when we calculate surface solar radiation. In this case, the solar radiation would be divided into direct and diffuse radiation, which would be computed separately. Besides the SZA, sky clearness (affected by cloud, aerosol, water vapor etc.) also needs to be considered. The sky clearness index here, which was derived from satellite data, was one day resolution. The total solar radiation equals the sum of direct and diffuse radiation. From the formula above, we know that the accuracy of solar radiation depends largely on the accuracy of sky clearness index, which is also a common problem when it comes to satellite image processing.</p>
+<p>There are many methods to calculate solar radiation and SZA. The differences include how to compute local time, or the way to compute declination of earth (delta in above code) etc. These methods are subtle differences if your scale is not too fine.</p>
+<section id="references" class="level4">
+<h4 class="anchored" data-anchor-id="references">References</h4>
+<p>Bonan, G. (2015). Atmospheric Radiation. In Ecological Climatology: Concepts and Applications (pp.&nbsp;61-73). Cambridge: Cambridge University Press. doi:10.1017/CBO9781107339200.005</p>
+</section>
+</section>
+<section id="circular" class="level3">
+<h3 class="anchored" data-anchor-id="circular">Deal with circular variables</h3>
+<section id="what-is-circular-variables" class="level4">
+<h4 class="anchored" data-anchor-id="what-is-circular-variables">What is circular variables?</h4>
+<p>Circular variables are variables with cycle characteristics—for example, direction (from 0° to 360°), time (from 0 to 23 hr, or January to December). The beginning and the end of the variables are close to each other.</p>
+<p>If you analyze these kinds of data as if they were normal linear variables (such as temperature, slope…), the results would be unexplainable.</p>
+<p>For scientists in fields like ecology, geology, or geography, it is common to encounter circular variables. However, solutions for handling them are not widely discussed.</p>
+</section>
+<section id="ways-to-handle-circular-variables" class="level4">
+<h4 class="anchored" data-anchor-id="ways-to-handle-circular-variables">Ways to handle circular variables</h4>
+<section id="classification" class="level5">
+<h5 class="anchored" data-anchor-id="classification">1. Classification</h5>
+<p>The most intuitive way is to classify the circular variables, allowing you to add classified variables into your linear models.</p>
+<p>For example, direction data can be classified into 4 categories:</p>
+<ul>
+<li>0–45° → Class 1<br>
+</li>
+<li>45–90° → Class 2<br>
+</li>
+<li>and so on.</li>
+</ul>
+</section>
+<section id="trigonometric-function" class="level5">
+<h5 class="anchored" data-anchor-id="trigonometric-function">2. Trigonometric function</h5>
+<p>Another method is to project the circular variables onto a unit circle and convert them to two-dimensional (x, y) variables. This maintains the cyclical nature of the original variables.</p>
+<p>Example in R using day of year from 1 to 365:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">doy_test <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">365</span>)</span>
+<span id="cb9-2">de_doy <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">360</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> doy_test <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(doy_test)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Projecting to unit circle and showing as angle (deg)</span></span>
+<span id="cb9-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">plot</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sin</span>(de_doy), <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cos</span>(de_doy))</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://hsinju-li.github.io/projects/2025-05-03-Master_thesis/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Here, <code>sin(de_doy)</code> and <code>cos(de_doy)</code> become two new variables representing <code>doy_test</code>.</p>
+</section>
+</section>
+<section id="circular-statistics" class="level4">
+<h4 class="anchored" data-anchor-id="circular-statistics">Circular statistics</h4>
+<p>If you need to compute means or variances of circular variables, Pewsey et al.&nbsp;(2013) is a recommended read. The book also covers regression models for estimating circular variables.</p>
+<p>Additionally, you can consider applying <strong>Rayleigh and Watson Tests</strong> on circular data.</p>
+</section>
+<section id="references-1" class="level4">
+<h4 class="anchored" data-anchor-id="references-1">References</h4>
+<ul>
+<li><a href="https://stats.stackexchange.com/questions/148380/use-of-circular-predictors-in-linear-regression" target="_blank">Use of circular predictors in linear regression</a></li>
+<li>Pewsey, A., Neuhäuser, M., &amp; Ruxton, G. D. (2013). Circular statistics in R. Oxford University Press.</li>
+</ul>
+
+
+</section>
+</section>
+</section>
+
+ ]]></description>
+  <category>Research</category>
+  <guid>https://hsinju-li.github.io/projects/2025-05-03-Master_thesis/</guid>
+  <pubDate>Sat, 03 May 2025 07:00:00 GMT</pubDate>
+  <media:content url="https://hsinju-li.github.io/projects/2025-05-03-Master_thesis/CL_fog.jpg" medium="image" type="image/jpeg"/>
+</item>
+</channel>
+</rss>

@@ -1,6 +1,6 @@
 ---
 title: "Some useful mindsets as a PhD student"
-description: "Every PhD journey is unique, read with cautious!"
+description: "Every PhD journey is unique, read with care."
 author:
   - name: Hsin-Ju Li
     url: https://github.com/HSINJU-LI
@@ -9,6 +9,12 @@ author:
     affiliation-url: https://www.geog.ucsb.edu/ 
 date: 02-08-2026
 categories: [PhD] # self-defined categories
+
+citation: 
+  url: https://HSINJU-LI.github.io/posts/2025-04-29-a_test_post/ 
+image: Tree_of_Life_900.PNG
+draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+---
 
 <h1> Applying for funding: Dealing with rejection </h1>
 <p> Rejection is not failure. </p>
@@ -23,8 +29,3 @@ categories: [PhD] # self-defined categories
 
 <h1> How do you feel right now? </h1>
 
-citation: 
-  url: https://HSINJU-LI.github.io/posts/2025-04-29-a_test_post/ 
-image: Tree_of_Life_900.PNG
-draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
----

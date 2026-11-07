@@ -1,19 +1,33 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - index.qmd
+    - about.qmd
+    - posts.qmd
+    - projects.qmd
+    - resources.qmd
+    - "!original-backup-*/"
+    - "posts/*/index.qmd"
+    - "projects/*/index.qmd"
 
 website:
   title: "Hsin-Ju Li"
+  description: "Ph.D. candidate at UC Santa Barbara specializing in remote sensing, imaging spectroscopy, and environmental change."
+  site-url: https://hsinju-li.github.io/
+  open-graph: true
   favicon: /media/Tree_of_Life.png
   navbar:
-    title: false # override printing your website `title` (e.g. "Sam Csik" on line 6) in the top left corner of your navbar
+    title: "Hsin-Ju Li"
     logo: /media/Tree_of_Life.svg
     logo-alt: "logo of tree of life"
     right:
       - href: index.qmd
         text: Home
-      - about.qmd
-      - projects.qmd
+      - href: about.qmd
+        text: About
+      - href: projects.qmd
+        text: Research
       - posts.qmd
       - href: resources.qmd
         text: Resources
@@ -22,20 +36,18 @@ website:
         target: _blank
   page-footer:
     background: light # or `dark`
-    left: Copyright 2025, Hsin-Ju Li
-    right: This website is built with [{{< fa brands github title="GitHub octocat logo" >}}](https://github.com/HSINJU-LI/hsinjuli.github.io){target=_blank} and [Quarto](https://quarto.org/){target=_blank}
+    left: Copyright 2026, Hsin-Ju Li
+    right: This website is built with [{{< fa brands github title="GitHub octocat logo" >}}](https://github.com/HSINJU-LI/hsinju-li.github.io){target=_blank} and [Quarto](https://quarto.org/){target=_blank}
 
 
 format:
   html:
     theme:
-      - styles.scss
       - cosmo
-      - brand
-      - minty
+      - styles.scss
     mainfont: Nunito Sans
     toc: true
-    page-layout: full
+    page-layout: article
 
 
 

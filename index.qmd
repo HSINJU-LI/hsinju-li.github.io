@@ -1,12 +1,17 @@
 ---
 title: "Hsin-Ju Li (李欣儒)"
+description: "Hsin-Ju Li is a Ph.D. candidate in Geography at UC Santa Barbara studying environmental change with remote sensing, imaging spectroscopy, and machine learning."
 image: media/headshot.jpg
+image-alt: "Portrait of Hsin-Ju Li"
 toc: false
 about: 
-  template: jolla
+  template: trestles
   image-shape: round
   image-width: 17em
   links:
+    - icon: file-earmark-person
+      text: View CV
+      href: media/CV_HsinJuLi.pdf
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/hsinjuli/
@@ -21,10 +26,19 @@ about:
 ---
 
 ::: {#bio}
-Hi, I’m Hsin-Ju Li!
-I'm currently a Ph.D. student in the Geography Department at UC Santa Barbara. My research focuses on using both **active and passive remote sensing data** to monitor **environmental changes** across landscapes and through time.
+**Remote sensing · Environmental change · Geography**
 
-Outside of work, I'm an avid **climber** and **runner** who also enjoys playing board games with friends. I love trying new things and exploring new experiences!
+I’m a **Ph.D. candidate in Geography at UC Santa Barbara**, studying how ecosystems respond to environmental change. I combine active and passive remote sensing data with field observations to understand landscapes across space and time.
 
-Feel free to poke around to learn more [about me](about.qmd) and my work!
+My dissertation examines **drought impacts on Southern California oak woodlands**, with a focus on **imaging spectroscopy**. My earlier work used satellite observations and machine learning to quantify fog in Taiwan’s montane cloud forests.
+
+::: {.availability}
+**Seeking a summer 2027 internship**
+
+I’m interested in opportunities to apply remote sensing and environmental data analysis to real-world questions. [Get in touch](mailto:hsinjuli@ucsb.edu).
+:::
+
+[Explore my research](projects.qmd){.btn .btn-primary} [More about me](about.qmd){.btn .btn-outline-primary}
+
+Outside research, you’ll usually find me climbing, running, or playing board games with friends.
 :::
